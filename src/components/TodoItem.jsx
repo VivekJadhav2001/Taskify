@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Trash2, Edit2, CheckCircle, Circle } from "lucide-react";
+import { deleteTodo, toggleComplete, editTodo } from "../features/todos/todoSlice"
 import { useDispatch } from "react-redux";
 
 const TodoItem = ({ todo }) => {
