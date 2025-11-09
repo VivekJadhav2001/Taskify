@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import TodoPage from "./pages/TodoPage";
+import { useEffect } from "react";
 
 const App = () => {
   const { user } = useSelector((state) => state.auth);
@@ -11,6 +12,12 @@ const App = () => {
   const PrivateRoute = ({ children }) => {
     return user ? children : <Navigate to="/login" />;
   };
+
+  const theme = useSelector((state) => state.theme.theme);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return (
     <BrowserRouter>

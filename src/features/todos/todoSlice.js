@@ -10,10 +10,13 @@ const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action) => {
+      const { text, deadline, createdAt } = action.payload;
       const newTodo = {
         id: nanoid(),
-        text: action.payload,
+        text,
         completed: false,
+        createdAt,
+        deadline,
       };
       state.todos.push(newTodo);
       localStorage.setItem("todos", JSON.stringify(state.todos));
