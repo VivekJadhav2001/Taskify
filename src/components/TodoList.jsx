@@ -8,7 +8,7 @@ const TodoList = () => {
     if (filter === "completed") return todo.completed;
     if (filter === "notCompleted") return !todo.completed;
     return true;
-  });
+  }).sort((a, b) => Number(a.completed) - Number(b.completed));;
 
   return (
     <div className="w-full max-w-md mx-auto mt-6">
